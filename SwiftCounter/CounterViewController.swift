@@ -120,22 +120,6 @@ class CounterViewController : UIViewController {
     }
     
     
-    override func viewWillLayoutSubviews() {
-        super.viewWillLayoutSubviews()
-        
-        timeLabel!.frame = CGRectMake(10, 40, self.view.bounds.size.width-20, 120)
-        
-        let gap = ( self.view.bounds.size.width - 10*2 - (CGFloat(timeButtons!.count) * 64) ) / CGFloat(timeButtons!.count - 1)
-        for (index, button) in enumerate(timeButtons!) {
-            let buttonLeft = 10 + (64 + gap) * CGFloat(index)
-            button.frame = CGRectMake(buttonLeft, self.view.bounds.size.height-120, 64, 44)
-        }
-        
-        startStopButton!.frame = CGRectMake(10, self.view.bounds.size.height-60, self.view.bounds.size.width-20-100, 44)
-        clearButton!.frame = CGRectMake(10+self.view.bounds.size.width-20-100+20, self.view.bounds.size.height-60, 80, 44)
-        
-    }
-
 
     
 
