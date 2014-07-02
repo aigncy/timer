@@ -105,24 +105,107 @@ class CounterViewController : UIViewController {
 
     func startStopButtonTapped(sender: UIButton) {
         
+        isCounting = !isCounting
+        
     }
     
     func clearButtonTapped(sender: UIButton) {
         
+        remainingSeconds = 0
+        
+        
     }
     
     func timeButtonTapped(sender: UIButton) {
+        let (_,seconds) = timeButtonInfos[sender.tag]
+        remainingSeconds += seconds
         
     }
     
     func updateTimer(timer: NSTimer) {
         
+        remainingSeconds -= 1
+        
+        if remainingSeconds <= 0 {
+            let alert = UIAlertView()
+            alert.title = "Finished!"
+            alert.message = ""
+            alert.addButtonWithTitle("OK")
+            alert.show()
+        }
+        
+        if remainingSeconds == 0 {
+            isCounting = false
+        }
+        
     }
     
     
-
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        
+        timeLabel!.frame = CGRectMake(10,40, self.view.bounds.size.width-20,120)
+        
+        let gap = (self.view.bounds.size.width - 10*2 - (CGFloat(timeButtons!.count)*64)) / CGFloat(timeButtons!.count-1)
+        
+        for (index, button) in enumerate(timeButtons!) {
+            let buttonLeft = 10+(64+gap) * CGFloat(index)
+            
+            button.frame = CGRectMake(buttonLeft, self.view.bounds.size.height-120,64,44)
+        }
+        
+        startStopButton!.frame = CGRectMake(10, self.view.bounds.size.height-60, self.view.bounds.size.width-20-100,44)
+        
+        clearButton!.frame = CGRectMake(10+self.view.bounds.size.width-20-100+20, self.view.bounds.size.height-60,80,44)
+        
+        
+    }
     
 
+    var remainingSeconds: Int = 0 {
+        
+        willSet(newSeconds) {
+            let mins = newSeconds/60
+            let seconds = newSeconds%60
+            self.timeLabel!.text = NSString(format:"%02d:%02d",mins,seconds)
+            
+        }
+    }
+
+    
+    var isCounting: Bool = false {
+        
+    willSet(newValue) {
+        if newValue {
+            timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "updateTimer:", userInfo: nil, repeats: true)
+            
+        } else {
+            timer?.invalidate()
+            timer = nil
+        }
+        
+        setSettingButtonsEnabled(!newValue)
+        
+    }
+    }
+    
+    func setSettingButtonsEnabled(enabled:Bool)
+        {
+        
+        for button in self.timeButtons! {
+        button.enabled = enabled
+        button.alpha = enabled ? 1.0 : 0.3
+        
+        }
+        
+        clearButton!.enabled = enabled
+        clearButton!.alpha = enabled ? 1.0 : 0.3
+    }
+    
+    
+    
+    var timer: NSTimer?
+    
     
     
     
