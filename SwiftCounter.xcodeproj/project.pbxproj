@@ -11,6 +11,7 @@
 		4DDBDAA519648CD0004F02AB /* SwiftCounter.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4DDBDAA319648CD0004F02AB /* SwiftCounter.xcdatamodeld */; };
 		4DDBDAA719648CD0004F02AB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4DDBDAA619648CD0004F02AB /* Images.xcassets */; };
 		4DDBDAB319648CD0004F02AB /* SwiftCounterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDBDAB219648CD0004F02AB /* SwiftCounterTests.swift */; };
+		4DDBDABD19648E12004F02AB /* CounterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDBDABC19648E12004F02AB /* CounterViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,6 +33,7 @@
 		4DDBDAAC19648CD0004F02AB /* SwiftCounterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftCounterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DDBDAB119648CD0004F02AB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4DDBDAB219648CD0004F02AB /* SwiftCounterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftCounterTests.swift; sourceTree = "<group>"; };
+		4DDBDABC19648E12004F02AB /* CounterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CounterViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +76,7 @@
 			isa = PBXGroup;
 			children = (
 				4DDBDAA119648CD0004F02AB /* AppDelegate.swift */,
+				4DDBDABC19648E12004F02AB /* CounterViewController.swift */,
 				4DDBDAA619648CD0004F02AB /* Images.xcassets */,
 				4DDBDAA319648CD0004F02AB /* SwiftCounter.xcdatamodeld */,
 				4DDBDA9F19648CD0004F02AB /* Supporting Files */,
@@ -203,6 +206,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4DDBDABD19648E12004F02AB /* CounterViewController.swift in Sources */,
 				4DDBDAA519648CD0004F02AB /* SwiftCounter.xcdatamodeld in Sources */,
 				4DDBDAA219648CD0004F02AB /* AppDelegate.swift in Sources */,
 			);
