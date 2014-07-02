@@ -124,7 +124,9 @@ class CounterViewController : UIViewController {
     
     func updateTimer(timer: NSTimer) {
         
+        if remainingSeconds >= 1 {
         remainingSeconds -= 1
+        }
         
         if remainingSeconds <= 0 {
             let alert = UIAlertView()
